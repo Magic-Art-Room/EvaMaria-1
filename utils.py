@@ -1,7 +1,8 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM
+from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, REQ_CHANNEL, ADMINS
 from imdb import IMDb
+from database.join_reqs import JoinReqs as db2
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
 from pyrogram import enums
