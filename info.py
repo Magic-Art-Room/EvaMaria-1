@@ -1,5 +1,8 @@
 import re
 from os import environ
+from dotenv import load_dotenv
+
+# load_dotenv("./config.env")
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
@@ -35,6 +38,11 @@ AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 DATABASE_URI = environ.get('DATABASE_URI', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Rajappan")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
+
+#REQ_FSUB
+REQ_CHANNEL = environ.get("REQ_CHANNEL", False)
+REQ_CHANNEL = int(REQ_CHANNEL) if REQ_CHANNEL and id_pattern.search(REQ_CHANNEL) else False
+JOIN_REQS_DB = environ.get("JOIN_REQS_DB", DATABASE_URI)
 
 # Others
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
